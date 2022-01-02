@@ -1,0 +1,14 @@
+.textec {
+    text-decoration: none;
+
+}
+
+.containernavs{
+  padding-top: 1rem;
+display: flex;
+}
+
+.col-sm{
+  margin-bottom: 1.5rem;
+}
+
