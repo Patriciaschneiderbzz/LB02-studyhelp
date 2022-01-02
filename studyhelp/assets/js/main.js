@@ -60,8 +60,10 @@ let newSwiper = new Swiper(".new-swiper", {
 /*=============== SHOW SCROLL UP ===============*/ 
 function scrollUp(){
   const scrollUp = document.getElementById('scroll-up');
-  // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
-  if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+  if (scrollUp != null){
+    // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
+    if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+  }
 }
 window.addEventListener('scroll', scrollUp)
 
@@ -103,6 +105,7 @@ const sr = ScrollReveal({
   delay: 400,
   // reset: true
 })
+
 
 sr.reveal(`.home__img, .new__container, .footer__container`)
 sr.reveal(`.home__data`, {delay: 500})

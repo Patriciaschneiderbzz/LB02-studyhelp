@@ -1,6 +1,3 @@
-/**
- * Webapp with Pagination
- */
 
 /**
  * Deklaration der Variablen
@@ -110,7 +107,7 @@ function showPrevious() {
     //speichere wieder den index im Browser-Speicher
     localStorage.setItem("index", index);
     //hole den nächst höheren Eintrag
-    client = lernendenListe[index];
+    client = clientListe[index];
     //zeige den Eintrag
     showUI();
 }

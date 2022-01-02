@@ -1,4 +1,3 @@
-
 body {
     flex-wrap: wrap;
 }
@@ -6,10 +5,7 @@ body {
 .pagewidth{
     justify-content: center;
     padding-top: 50px;
-
 }
-
-
 
 .forms {
     padding: 20px 40px;
