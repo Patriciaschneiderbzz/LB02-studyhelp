@@ -1,7 +1,7 @@
 const WorkfieldList = ["Stockmarket", "Stockmarket",
     "Computer science", "Marketing", "Application developer", "Online Trading"];
 
-let clientListe =
+let clientListe=
     [
         {
             "studentid": 101,

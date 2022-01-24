@@ -566,6 +566,7 @@ body.dark-theme {
   column-gap: .25rem;
   color: var(--title-color) !important;
   font-weight: var(--font-medium);
+  font-size: var(--h3-font-size) !important;
 }
 
 .footer__logo-img {
@@ -629,6 +630,7 @@ body.dark-theme {
 .footer__img2 {
   top: 60%;
   left: 80rem;
+  z-index: 100;
 }
 
 .footersize {
