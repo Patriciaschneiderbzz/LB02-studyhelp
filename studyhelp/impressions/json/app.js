@@ -44,7 +44,7 @@ function showUI(){
     //set
     htmlObj.innerHTML += " " + skill;
 
-    //Kurse - Allgemein Bildung
+    //Kurse - New Techniques
     htmlObj = document.getElementById("allgemein");
     //clear
     htmlObj.innerHTML = "";
@@ -59,7 +59,7 @@ function showUI(){
 
 
 /**
- * Nächster Eintrag (Record) zeigen
+ * Nächster Eintrag zeigen
  */
 function showNext() {
     //Index aus dem Browser-Speicher lesen
