@@ -52,7 +52,7 @@ function showUI(){
     let skillListe = client.courses.allgemein;
     for (let i=0;i<skillListe.length; i++){
         htmlObj.innerHTML += `${skillListe[i]}<br>`;
-    };
+    }
 
 
 }
