@@ -1,0 +1,32 @@
+[
+  {
+    "id": "8af25bfa-f262-4469-84a3-4b0a7dd34765",
+    "username": "Patricia",
+    "email": "aicirtapschneider@hotmail.com",
+    "password": "hello1234"
+  },
+  {
+    "id": "59dcf950-380c-4609-b867-dff02e1ba66c",
+    "username": "Patricia",
+    "email": "aicirtapschneider@hotmail.com",
+    "password": "hello1234"
+  },
+  {
+    "id": "c7998ba8-512a-44f9-bc63-aefa39d0c040",
+    "username": "lea",
+    "email": "gioa@hotmail.com",
+    "password": "Lea-gioa-1345"
+  },
+  {
+    "id": "2c16165a-cb98-4078-94a0-361ba9e27617",
+    "username": "lea",
+    "email": "gioah@otmail.com",
+    "password": "Lea-gioa-1345"
+  },
+  {
+    "id": "ea65f8f2-4100-4a1a-ae12-2ea0b9bd90e5",
+    "username": "lea",
+    "email": "gioah@otmail.com",
+    "password": "Lea-gioa-1345"
+  }
+]
