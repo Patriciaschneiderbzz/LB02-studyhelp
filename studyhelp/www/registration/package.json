@@ -1,13 +1,10 @@
 {
-  "name": "studyhelp",
+  "name": "M307_MED20",
   "version": "1.0.0",
   "description": "ICT-Modul_307",
-  "main": "server.js",
+  "main": "script/server.js",
   "scripts": {
-"upload": "node 01_Get_Post/03_Solutions/upload/upload2.js",
-    "registrationserver": "node script/server.js",
-    "loggerserver": "set NODE_ENV=development && node 13a_Logging/01_Intro/register-server/server.js",
-    "guitarserver": "node -r esm 89_Manufacturer/01_Intro/server.js"
+    "registrationserver": "node script/server.js"
   },
   "keywords": [
     "Mediamatiker",
@@ -15,7 +12,7 @@
     "ICT",
     "javascript"
   ],
-  "author": "daniel.garavaldi@bzz.ch",
+  "author": "schneiderp@bzz.ch",
   "license": "ISC",
   "dependencies": {
     "esm": "^3.2.25",

@@ -1,10 +1,10 @@
 const form = document.getElementById("form");
 const username = document.getElementById("username");
-const vorname = document.getElementById("vorname");
+const firstname = document.getElementById("firstname");
 const email = document.getElementById("email");
 const telefon = document.getElementById("telefon");
 const password = document.getElementById("password");
-const password2 = document.getElementById("password2");
+const passwordRepeat = document.getElementById("passwordRepeat");
 
 function showError(input, message) {
     const formControl = input.parentElement;
@@ -27,7 +27,7 @@ function checkEmail(input) {
     }
 }
 // Check if phone is valid
-function checktelefon(id,input) {
+function checkTelefon(id,input) {
     //Default: is valid
     let result = {
         isNotValid: false,
@@ -54,9 +54,9 @@ function checkRequired(inputArr) {
     });
 }
 
-function checkPasswordsMatch(password1, password2) {
-    if (password1.value !== password2.value) {
-        showError(password2, "Password do not match");
+function checkPasswordsMatch(password, passwordRepeat) {
+    if (password.value !== passwordRepeat.value) {
+        showError(passwordRepeat, "Password do not match");
     }
 }
 
@@ -83,13 +83,14 @@ function getFieldName(input) {
 form.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    checkRequired([username, vorname, email, telefon, password, password2]);
+    checkRequired([username, firstname, email, telefon, password, passwordRepeat]);
     checkLength(username, 3, 15);
-     checkLength(vorname, 3, 15);
+    checkLength(firstname, 2, 15);
     checkLength(password, 6, 25);
     checkEmail(email);
-    if (password2.value !== "") {
-        checkPasswordsMatch(password, password2);
+    checkTelefon(telefon);
+    if (passwordRepeat.value !== "") {
+        checkPasswordsMatch(password, passwordRepeat);
     }
 });
 
@@ -132,31 +133,6 @@ form.addEventListener("submit", function(e) {
   
         return regexp.test(str);
 }
-const dropArea = document.querySelector(".drop_box"),
-    button = dropArea.querySelector("button"),
-    dragText = dropArea.querySelector("header"),
-    input = dropArea.querySelector("input");
-let file;
-var filename;
-
-button.onclick = () => {
-    input.click();
-};
-
-input.addEventListener("change", function (e) {
-    var fileName = e.target.files[0].name;
-    let filedata = `
-    <form action="" method="post">
-    <div class="form">
-    <h4>${fileName}</h4>
-    <input type="email" placeholder="Enter email upload file">
-    <button class="btn">Upload</button>
-    </div>
-    </form>`;
-    dropArea.innerHTML = filedata;
-});
-
 console.log(is_creditCard("378282246310006"));
 
 console.log(is_creditCard("37828224630006"));
-
