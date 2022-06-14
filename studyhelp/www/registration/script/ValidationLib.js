@@ -15,6 +15,40 @@ function showSuccess(id) {
     return `${id} successfully validated!`;
 }
 
+// Check Username is valid
+function checkUsername(id,input) {
+    //Default: is valid
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    const re = /^[a-z ,.'-]+$/i;
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Username is not valid')
+        }
+    }
+    return result;
+}
+
+// Check Firstname is valid
+function checkFirstname(id,input) {
+    //Default: is valid
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    const re = /^[a-z ,.'-]+$/i;
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Firstname is not valid')
+        }
+    }
+    return result;
+}
+
 // Check email is valid
 function checkEmail(id,input) {
     //Default: is valid
@@ -33,7 +67,7 @@ function checkEmail(id,input) {
 }
 
 // Check if phone is valid
-function checktelefon(id,input) {
+function checkTelefon(id,input) {
     //Default: is valid
     let result = {
         isNotValid: false,
@@ -69,6 +103,37 @@ function checkRequired(id, input) {
     //return validation result
     return result;
 }
+// Check email is valid
+function checkPassword(id,input) {
+    //Default: is valid
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Password is not valid')
+        }
+    }
+    return result;
+}
+
+// Check email is valid
+function checkPasswordsMatch(id,input) {
+    //Default: is valid
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Passwords don\'t match')
+        }
+    }
+    return result;
+}
 
 // Check input length
 function checkLength(id, input, min, max) {
@@ -101,8 +166,9 @@ module.exports = {
     checkEmail,
     checkLength,
     checkRequired,
-    checkVorname,
-    checkLength,
-    checkRequired,
-    checktelefon
+    checkUsername,
+    checkFirstname,
+    checkTelefon,
+    checkPassword,
+    checkPasswordsMatch
 }

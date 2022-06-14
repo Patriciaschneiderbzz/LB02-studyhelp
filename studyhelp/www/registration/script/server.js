@@ -20,7 +20,7 @@ console.log(`Running at Port ${port}`);
 server.timeout = 1000 * 60 * 2; // 2 minutes
 
 //Warning: Korrekt setzen!!
-const staticPath = './data/';
+const staticPath = './script/data/';
 const registrationFile = staticPath+'registration.json';
 
 
@@ -44,11 +44,9 @@ app.get('/test1', (req, res) => {
 app.use(bodyParser.json());
 // support encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-
 /*  1. Writing to file
     https://stackabuse.com/reading-and-writing-json-files-with-node-js/
  */
-
 app.post('/register', (req, res) => {
 
     const HTTP_STATUS_NO_ACCEPTABLE = 406;
@@ -56,12 +54,12 @@ app.post('/register', (req, res) => {
     let userObj = {
         "id": uuidv4(),
         "username": req.body.user.username,
-        "vorname": req.body.user.vorname,
+        "firstname": req.body.user.firstname,
         "email": req.body.user.email,
         "telefon": req.body.user.telefon,
-        "password": req.body.user.password
+        "password": req.body.user.password,
+        "passwordRepeat": req.body.user.passwordRepeat
     }
-
     let result = Validation.validateUser(userObj);
     if (result.isNotValid) {
         res.status(HTTP_STATUS_NO_ACCEPTABLE).send(result.msg);
