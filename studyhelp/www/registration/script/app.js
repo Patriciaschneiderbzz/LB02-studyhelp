@@ -19,7 +19,7 @@ function showSuccess(input) {
 }
 
 function checkEmail(input) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(input.value)) {
         showSuccess(input);
     } else {
@@ -27,7 +27,7 @@ function checkEmail(input) {
     }
 }
 // Check if phone is valid
-function checkTelefon(id,input) {
+function checktelefon(id,input) {
     //Default: is valid
     let result = {
         isNotValid: false,
@@ -42,8 +42,6 @@ function checkTelefon(id,input) {
     }
     return result;
 }
-
-
 function checkRequired(inputArr) {
     inputArr.forEach(function(input) {
         if (input.value === "") {
@@ -53,7 +51,6 @@ function checkRequired(inputArr) {
         }
     });
 }
-
 function checkPasswordsMatch(password, passwordRepeat) {
     if (password.value !== passwordRepeat.value) {
         showError(passwordRepeat, "Password do not match");
@@ -79,21 +76,19 @@ function checkLength(input, min, max) {
 function getFieldName(input) {
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
-
 form.addEventListener("submit", function(e) {
     e.preventDefault();
 
     checkRequired([username, firstname, email, telefon, password, passwordRepeat]);
     checkLength(username, 3, 15);
-    checkLength(firstname, 2, 15);
+    checkLength(firstname, 3, 15);
     checkLength(password, 6, 25);
+    checkLength(passwordRepeat, 6, 25);
     checkEmail(email);
-    checkTelefon(telefon);
     if (passwordRepeat.value !== "") {
         checkPasswordsMatch(password, passwordRepeat);
     }
 });
-
 
          document.querySelector('.card-number-input').oninput = () => {
                 document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input')

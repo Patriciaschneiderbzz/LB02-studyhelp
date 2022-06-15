@@ -1,5 +1,7 @@
 // Show input error message
 
+const re = require("nodemon");
+
 /**
  * Beschreibung
  * @param id: Identifikation des eingegebenen Datenelement
@@ -31,7 +33,6 @@ function checkUsername(id,input) {
     }
     return result;
 }
-
 // Check Firstname is valid
 function checkFirstname(id,input) {
     //Default: is valid
@@ -42,21 +43,20 @@ function checkFirstname(id,input) {
     const re = /^[a-z ,.'-]+$/i;
     if (!re.test(input.trim())) {
         result = {
-            isNotValid: true,
+            isNotValid:true,
             msg: showError(id, 'Firstname is not valid')
         }
     }
     return result;
 }
-
-// Check email is valid
+// Check if Email is valid
 function checkEmail(id,input) {
     //Default: is valid
     let result = {
         isNotValid: false,
         msg: showSuccess(id)
     }
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     if (!re.test(input.trim())) {
         result = {
             isNotValid: true,
@@ -77,7 +77,36 @@ function checkTelefon(id,input) {
     if (!swiss.test(input.trim())) {
         result = {
             isNotValid: true,
-            msg: showError(id, 'Phonenumber is not valid')
+            msg: showError(id, `${id} is not valid`)
+        }
+    }
+    return result;
+}
+// Check Password is valid
+function checkPassword(id,input) {
+    //Default: is valid
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    if (!re.test(input.trim())) result = {
+        isNotValid: true,
+        msg: showError(id, 'Password is not valid')
+    }
+    return result;
+}
+
+// Check email is valid
+function checkPasswordsMatch(id,input) {
+    //Default: is valid
+    let result = {
+        isNotValid: false,
+        msg: showSuccess(id)
+    }
+    if (!re.test(input.trim())) {
+        result = {
+            isNotValid: true,
+            msg: showError(id, 'Passwords don\'t match')
         }
     }
     return result;
@@ -101,37 +130,6 @@ function checkRequired(id, input) {
         }
     }
     //return validation result
-    return result;
-}
-// Check email is valid
-function checkPassword(id,input) {
-    //Default: is valid
-    let result = {
-        isNotValid: false,
-        msg: showSuccess(id)
-    }
-    if (!re.test(input.trim())) {
-        result = {
-            isNotValid: true,
-            msg: showError(id, 'Password is not valid')
-        }
-    }
-    return result;
-}
-
-// Check email is valid
-function checkPasswordsMatch(id,input) {
-    //Default: is valid
-    let result = {
-        isNotValid: false,
-        msg: showSuccess(id)
-    }
-    if (!re.test(input.trim())) {
-        result = {
-            isNotValid: true,
-            msg: showError(id, 'Passwords don\'t match')
-        }
-    }
     return result;
 }
 
@@ -164,10 +162,10 @@ function checkLength(id, input, min, max) {
  */
 module.exports = {
     checkEmail,
-    checkLength,
-    checkRequired,
     checkUsername,
     checkFirstname,
+    checkLength,
+    checkRequired,
     checkTelefon,
     checkPassword,
     checkPasswordsMatch
