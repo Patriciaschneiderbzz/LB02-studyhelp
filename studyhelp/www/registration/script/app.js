@@ -1,3 +1,4 @@
+// read elements
 const form = document.getElementById("form");
 const username = document.getElementById("username");
 const firstname = document.getElementById("firstname");
@@ -6,6 +7,7 @@ const telefon = document.getElementById("telefon");
 const password = document.getElementById("password");
 const passwordRepeat = document.getElementById("passwordRepeat");
 
+// Show input error message
 function showError(input, message) {
     const formControl = input.parentElement;
     formControl.className = "form-control error";
@@ -13,11 +15,24 @@ function showError(input, message) {
     small.innerText = message;
 }
 
+// Show success message
 function showSuccess(input) {
     const formControl = input.parentElement;
     formControl.className = "form-control success";
 }
 
+// Check required fields
+function checkRequired(inputArr) {
+    inputArr.forEach(function(input) {
+        if (input.value === "") {
+            showError(input, `${getFieldName(input)} is required`);
+        } else {
+            showSuccess(input);
+        }
+    });
+}
+
+// Check if email is valid
 function checkEmail(input) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(input.value)) {
@@ -26,6 +41,7 @@ function checkEmail(input) {
         showError(input, "Email is not valid");
     }
 }
+
 // Check if phone is valid
 function checkTelefon(id,input) {
     //Default: is valid
@@ -43,23 +59,14 @@ function checkTelefon(id,input) {
     return result;
 }
 
-
-function checkRequired(inputArr) {
-    inputArr.forEach(function(input) {
-        if (input.value === "") {
-            showError(input, `${getFieldName(input)} is required`);
-        } else {
-            showSuccess(input);
-        }
-    });
-}
-
+// Check if passwords are matching
 function checkPasswordsMatch(password, passwordRepeat) {
     if (password.value !== passwordRepeat.value) {
         showError(passwordRepeat, "Password do not match");
     }
 }
 
+// Check input length
 function checkLength(input, min, max) {
     if (input.value.length <= min) {
         showError(
@@ -76,25 +83,28 @@ function checkLength(input, min, max) {
     }
 }
 
+// Get fieldname
 function getFieldName(input) {
     return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
+// Event listeners
 form.addEventListener("submit", function(e) {
     e.preventDefault();
 
+// Validate form input elements
     checkRequired([username, firstname, email, telefon, password, passwordRepeat]);
     checkLength(username, 3, 15);
     checkLength(firstname, 2, 15);
     checkLength(password, 6, 25);
+    checkLength(telefon, 13, 15);
     checkEmail(email);
-    checkTelefon(telefon);
-    if (passwordRepeat.value !== "") {
+    if (password.value !== "") {
         checkPasswordsMatch(password, passwordRepeat);
     }
 });
 
-
+// Validate Creditcard
          document.querySelector('.card-number-input').oninput = () => {
                 document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input')
                     .value;
