@@ -16,7 +16,6 @@ server.timeout = 1000 * 60 * 2; // 2 minutes
 const staticPath = './script/data/';
 const registrationFile = staticPath + 'registration.json';
 
-
 // Use middleware to set the default Content-Type
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');

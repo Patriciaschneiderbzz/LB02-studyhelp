@@ -59,13 +59,13 @@ function validateUser(userObj) {
         return result;
     }
 
-//check E-Mail
+//check E-Mail syntax
     result = validateLib.checkEmail("email", userObj.email);
     if (result.isNotValid) {
         return result;
     }
 
-    //check phone syntax
+    //check Telefon syntax
     result = validateLib.checkTelefon("telefon", userObj.telefon);
     if (result.isNotValid) {
         return result;
@@ -83,12 +83,12 @@ function validateUser(userObj) {
         return result;
     }
 
-//check password
+//check password Syntax
     result = validateLib.checkPassword("password", userObj.password);
     if (result.isNotValid) {
         return result;
     }
-//check password
+//check password Confirmation Syntax
     result = validateLib.checkPasswordsMatch("password", userObj.passwordRepeat);
     if (result.isNotValid) {
         return result;
@@ -97,6 +97,11 @@ function validateUser(userObj) {
 //all inputs are valid and isNotValid=false
     return false;
 }
+
+/**
+ *  Export validation functions for further usage.
+ *  function to export WITHOUT brackets!
+ */
 
 module.exports = {
     validateUser

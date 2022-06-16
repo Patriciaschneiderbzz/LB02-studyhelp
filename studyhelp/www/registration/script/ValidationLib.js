@@ -33,6 +33,7 @@ function checkUsername(id,input) {
     }
     return result;
 }
+
 // Check Firstname is valid
 function checkFirstname(id,input) {
     //Default: is valid
@@ -49,6 +50,7 @@ function checkFirstname(id,input) {
     }
     return result;
 }
+
 // Check if Email is valid
 function checkEmail(id,input) {
     //Default: is valid
@@ -66,7 +68,7 @@ function checkEmail(id,input) {
     return result;
 }
 
-// Check if phone is valid
+// Check if Telefon is valid
 function checkTelefon(id,input) {
     //Default: is valid
     let result = {
@@ -82,6 +84,7 @@ function checkTelefon(id,input) {
     }
     return result;
 }
+
 // Check Password is valid
 function checkPassword(id,input) {
     //Default: is valid
@@ -96,7 +99,7 @@ function checkPassword(id,input) {
     return result;
 }
 
-// Check email is valid
+// Check PasswordsMatch is valid
 function checkPasswordsMatch(id,input) {
     //Default: is valid
     let result = {
@@ -111,8 +114,6 @@ function checkPasswordsMatch(id,input) {
     }
     return result;
 }
-//TODO: Check article for throwing errors in node js
-// https://stackoverflow.com/questions/33086247/throwing-an-error-in-node-js
 
 // Check required fields
 function checkRequired(id, input) {
